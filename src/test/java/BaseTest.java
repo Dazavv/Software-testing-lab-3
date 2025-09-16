@@ -41,9 +41,9 @@ public abstract class BaseTest {
                 firefoxOptions.addPreference("geo.provider.use_corelocation", false);
                 firefoxOptions.addPreference("geo.provider.network.url", ""); // отключаем сетевой провайдер
                 firefoxOptions.addPreference("geo.wifi.scan", false);
-//                firefoxOptions.addArguments("--headless"); // запускаем в фоновом режиме
-//                firefoxOptions.addArguments("--width=1920"); // задаём ширину окна
-//                firefoxOptions.addArguments("--height=1080"); // задаём высоту окна
+                firefoxOptions.addArguments("--headless"); // запускаем в фоновом режиме
+                firefoxOptions.addArguments("--width=1920"); // задаём ширину окна
+                firefoxOptions.addArguments("--height=1080"); // задаём высоту окна
 
                 driver = new FirefoxDriver(firefoxOptions);
 
@@ -51,13 +51,13 @@ public abstract class BaseTest {
             default -> throw new IllegalArgumentException("Unknown browser: " + browser);
 
         }
-        driver.manage().window().maximize();
+//        driver.manage().window().maximize();
         driver.get("https://vkusnoitochka.ru/");
         return driver;
     }
 
     protected void runOnAllBrowsers(Consumer<WebDriver> test) {
-        List<Browser> browsers = List.of(Browser.FIREFOX);
+        List<Browser> browsers = List.of(Browser.FIREFOX, Browser.CHROME);
         browsers.parallelStream().forEach(browser -> {
             WebDriver driver = null;
             try {

@@ -14,9 +14,7 @@ public class MainPage extends BasePage {
     private EmailComponent emailComponent;
     private By vacanciesLink = By.xpath("//a[contains(text(), 'Работа у нас')]");
     private By charityLink = By.xpath("//a[contains(text(), 'Благотворительность')]");
-    private By feedbackPageButton = By.xpath("//a[@href='/feedback']");
-    private By bonusPageButton = By.xpath("//a[@href='/bonus']");
-    private By appPageButton = By.xpath("//span[contains(@class, 'layout-header-navigation-item__element')]//p[contains(text(), 'Приложение')]");
+    private By feedbackPageButton = By.xpath("//a[@href='/feedback' and contains(normalize-space(.), 'Обратная связь')]");
     private By cookieButton = By.xpath("//button[contains(@class, 'layout-layer-notifications-item__close')]");
 
     public MainPage(WebDriver driver) {
@@ -40,25 +38,7 @@ public class MainPage extends BasePage {
         clickElement(charityLink);
     }
 
-    public FeedbackPage clickFeedbackLink() {
-//        closeCookieNotification();
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(feedbackPageButton));
-//        wait.until(ExpectedConditions.elementToBeClickable(feedbackPageButton));
-//        WebElement feedback = driver.findElement(feedbackPageButton);
-//        ((JavascriptExecutor)driver).executeScript("arguments[0].click();", feedback);
-        clickElement(feedbackPageButton);
-        return new FeedbackPage(driver);
-    }
 
-    public BonusPage clickBonusLink() {
-        clickElement(bonusPageButton);
-        return new BonusPage(driver);
-    }
-
-    public AppPage clickAppLink() {
-        clickElement(appPageButton);
-        return new AppPage(driver);
-    }
     public void closeCookieNotification() {
         try {
             WebElement closeBtn = wait.until(ExpectedConditions.presenceOfElementLocated(cookieButton));

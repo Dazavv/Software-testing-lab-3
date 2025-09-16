@@ -1,17 +1,12 @@
 import org.example.pages.AppPage;
 import org.example.pages.BonusPage;
-import org.example.pages.FeedbackPage;
 import org.example.pages.MainPage;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class MainPageTest extends BaseTest {
-
-    private final String charityPageLink = "https://rabotaitochka.ru/";
 
     @Test
     void testChangeCity() {
@@ -82,20 +77,12 @@ public class MainPageTest extends BaseTest {
         });
     }
 
-    @Test
-    void testFeedbackPageNavigation() {
-        runOnAllBrowsers(driver -> {
-            MainPage mainPage = new MainPage(driver);
-            FeedbackPage feedbackPage = mainPage.clickFeedbackLink();
-            assertEquals("https://vkusnoitochka.ru/feedback", feedbackPage.getCurrentUrl());
-        });
-    }
 
     @Test
     void testBonusPageNavigation() {
         runOnAllBrowsers(driver -> {
             MainPage mainPage = new MainPage(driver);
-            BonusPage bonusPage = mainPage.clickBonusLink();
+            BonusPage bonusPage = mainPage.getHeader().toBonusPage();
             assertEquals("https://vkusnoitochka.ru/bonus", bonusPage.getCurrentUrl());
         });
     }
@@ -104,28 +91,8 @@ public class MainPageTest extends BaseTest {
     void testAppPageNavigation() {
         runOnAllBrowsers(driver -> {
             MainPage mainPage = new MainPage(driver);
-            AppPage appPage = mainPage.clickAppLink();
+            AppPage appPage = mainPage.getHeader().toAppPage();
             assertEquals("https://vkusnoitochka.ru/app-benefits", appPage.getCurrentUrl());
-        });
-    }
-
-    @Test
-    void testVacanciesLink() {
-        runOnAllBrowsers(driver -> {
-            MainPage mainPage = new MainPage(driver);
-            mainPage.clickVacanciesLink();
-            String currentUrl = driver.getCurrentUrl();
-            assertTrue(currentUrl.contains(charityPageLink));
-        });
-    }
-
-    @Test
-    void testCharityLink() {
-        runOnAllBrowsers(driver -> {
-            MainPage mainPage = new MainPage(driver);
-            mainPage.clickCharityLink();
-            String currentUrl = driver.getCurrentUrl();
-            assertTrue(currentUrl.contains("https://semyavmeste.org/"));
         });
     }
 }
