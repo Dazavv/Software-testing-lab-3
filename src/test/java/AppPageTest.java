@@ -9,6 +9,7 @@ public class AppPageTest extends BaseTest {
     @Test
     void testAppPageToGooglePlay() {
         runOnAllBrowsers(driver -> {
+            driver.get(URL);
             MainPage mainPage = new MainPage(driver);
             AppPage appPage = mainPage.getHeader().toAppPage();
 
@@ -22,6 +23,7 @@ public class AppPageTest extends BaseTest {
     @Test
     void testAppPageToAppGallery() {
         runOnAllBrowsers(driver -> {
+            driver.get(URL);
             MainPage mainPage = new MainPage(driver);
             AppPage appPage = mainPage.getHeader().toAppPage();
 
@@ -35,6 +37,7 @@ public class AppPageTest extends BaseTest {
     @Test
     void testAppPageToAppStore() {
         runOnAllBrowsers(driver -> {
+            driver.get(URL);
             MainPage mainPage = new MainPage(driver);
             AppPage appPage = mainPage.getHeader().toAppPage();
 
@@ -48,6 +51,7 @@ public class AppPageTest extends BaseTest {
     @Test
     void testAppPageToRuStore() {
         runOnAllBrowsers(driver -> {
+            driver.get(URL);
             MainPage mainPage = new MainPage(driver);
             AppPage appPage = mainPage.getHeader().toAppPage();
 

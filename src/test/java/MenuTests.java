@@ -11,6 +11,7 @@ public class MenuTests extends BaseTest {
     @Test
     void testViewMenu() {
         runOnAllBrowsers(driver -> {
+            driver.get(URL);
             MainPage mainPage = new MainPage(driver);
             MenuPage menuPage = mainPage.getHeader().toMenuPage();
 
@@ -34,6 +35,7 @@ public class MenuTests extends BaseTest {
     @Test
     void testViewFirstProductDetails() {
         runOnAllBrowsers(driver -> {
+            driver.get(URL);
             MainPage mainPage = new MainPage(driver);
             MenuPage menuPage = mainPage.getHeader().toMenuPage();
             menuPage.clickProductItem();
@@ -46,6 +48,7 @@ public class MenuTests extends BaseTest {
     @Test
     void testViewRestaurants() {
         runOnAllBrowsers(driver -> {
+            driver.get(URL);
             MainPage mainPage = new MainPage(driver);
             MenuPage menuPage = mainPage.getHeader().toMenuPage();
             menuPage.clickRestaurantChooseButton();
@@ -57,6 +60,7 @@ public class MenuTests extends BaseTest {
     @Test
     void testViewRestaurantProducts() {
         runOnAllBrowsers(driver -> {
+            driver.get(URL);
             MainPage mainPage = new MainPage(driver);
             MenuPage menuPage = mainPage.getHeader().toMenuPage();
             menuPage.clickRestaurantChooseButton();
@@ -65,4 +69,5 @@ public class MenuTests extends BaseTest {
             assertFalse(menuPage.getAddress().isEmpty());
         });
     }
+
 }

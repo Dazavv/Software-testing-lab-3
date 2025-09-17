@@ -10,6 +10,7 @@ public class MapPageTest extends BaseTest {
     @Test
     void testGetRestaurantsMapPage() {
         runOnAllBrowsers(driver -> {
+            driver.get(URL);
             MainPage mainPage = new MainPage(driver);
             MapPage mapPage = mainPage.getHeader().toRestaurantsPage();
 
@@ -21,6 +22,7 @@ public class MapPageTest extends BaseTest {
     @Test
     void testSeeRestaurantInfoOnMap() {
         runOnAllBrowsers(driver -> {
+            driver.get(URL);
             MainPage mainPage = new MainPage(driver);
             MapPage mapPage = mainPage.getHeader().toRestaurantsPage();
 

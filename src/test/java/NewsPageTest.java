@@ -8,6 +8,7 @@ public class NewsPageTest extends BaseTest {
     @Test
     void testSeeNewsList() {
         runOnAllBrowsers(driver -> {
+            driver.get(URL);
             MainPage mainPage = new MainPage(driver);
             NewsPage newsPage = mainPage.getHeader().toNewsPage();
 
@@ -19,6 +20,7 @@ public class NewsPageTest extends BaseTest {
     @Test
     void testSeeNewsListData() {
         runOnAllBrowsers(driver -> {
+            driver.get(URL);
             MainPage mainPage = new MainPage(driver);
             NewsPage newsPage = mainPage.getHeader().toNewsPage();
 
@@ -29,6 +31,7 @@ public class NewsPageTest extends BaseTest {
     @Test
     void testSeeNew() {
         runOnAllBrowsers(driver -> {
+            driver.get(URL);
             MainPage mainPage = new MainPage(driver);
             NewsPage newsPage = mainPage.getHeader().toNewsPage();
 
@@ -40,6 +43,7 @@ public class NewsPageTest extends BaseTest {
     @Test
     void testSeeNewsListTitles() {
         runOnAllBrowsers(driver -> {
+            driver.get(URL);
             MainPage mainPage = new MainPage(driver);
             NewsPage newsPage = mainPage.getHeader().toNewsPage();
 

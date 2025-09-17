@@ -9,6 +9,7 @@ public class BigFestTest extends BaseTest {
     @Test
     void testBigFestLogo() {
         runOnAllBrowsers(driver -> {
+            driver.get(URL);
             MainPage mainPage = new MainPage(driver);
             BigFestPage bigFestPage = mainPage.getHeader().toBigFestPage();
 
@@ -21,6 +22,7 @@ public class BigFestTest extends BaseTest {
     @Test
     void testBigFestCarousel() {
         runOnAllBrowsers(driver -> {
+            driver.get(URL);
             MainPage mainPage = new MainPage(driver);
             BigFestPage bigFestPage = mainPage.getHeader().toBigFestPage();
 
@@ -33,6 +35,7 @@ public class BigFestTest extends BaseTest {
     @Test
     void testBigFestPromoMorn() {
         runOnAllBrowsers(driver -> {
+            driver.get(URL);
             MainPage mainPage = new MainPage(driver);
             BigFestPage bigFestPage = mainPage.getHeader().toBigFestPage();
 
@@ -45,6 +48,7 @@ public class BigFestTest extends BaseTest {
     @Test
     void testBigFestPromoDay() {
         runOnAllBrowsers(driver -> {
+            driver.get(URL);
             MainPage mainPage = new MainPage(driver);
             BigFestPage bigFestPage = mainPage.getHeader().toBigFestPage();
 

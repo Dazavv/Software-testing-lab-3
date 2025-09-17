@@ -32,7 +32,7 @@ public class BonusPage extends BasePage {
 
     }
     public void clickLessProductsButton() {
-        WebElement lessButton = wait.until(ExpectedConditions.presenceOfElementLocated(bonusMoreProductsButton));
+        WebElement lessButton = wait.until(ExpectedConditions.presenceOfElementLocated(bonusLessProductsButton));
         scrollIntoView(lessButton);
         clickElement(bonusLessProductsButton);
     }

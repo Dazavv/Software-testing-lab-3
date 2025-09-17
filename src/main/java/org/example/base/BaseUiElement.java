@@ -14,13 +14,14 @@ public abstract class BaseUiElement {
     public BaseUiElement(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
     }
 
-    protected WebElement findElement(By locator) {
+    public WebElement findElement(By locator) {
         return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
 
-    protected List<WebElement> findElements(By locator) {
+    public List<WebElement> findElements(By locator) {
         return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
     }
 

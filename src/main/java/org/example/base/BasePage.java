@@ -15,5 +15,7 @@ public abstract class BasePage extends BaseUiElement{
 
     public void open(String url) {
         driver.get(url);
+        wait.until(webDriver ->
+                ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
     }
 }
